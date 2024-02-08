@@ -1,0 +1,6 @@
+framework module Pods_AIPainter {
+  umbrella header "Pods-AIPainter-umbrella.h"
+
+  export *
+  module * { export * }
+}
