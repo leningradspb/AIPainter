@@ -63,9 +63,9 @@ struct StableDiffusionResponse: Codable {
 }
 
 struct StableDiffusionFilterRequest: Codable {
-    let key: String
+    let key: String = "TouFyL4VyhWWNhqC3DnF5hAdR2fLXxgGY4Gpe4BqC8YGKE2j4NjuNrJAXetE"
     let prompt: String
-    let negative_prompt: String?
+    let negative_prompt: String? = nil
     var model_id: String = "midjourney"
     let guidance_scale: Int = 8
     let num_inference_steps: Int = 25

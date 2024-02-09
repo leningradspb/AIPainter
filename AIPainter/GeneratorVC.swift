@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class GeneratorVC: UIViewController {
     private let gradientContentView = GradientView()
@@ -18,6 +19,16 @@ final class GeneratorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startAvoidingKeyboard()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        stopAvoidingKeyboard()
     }
     
     private func setupUI() {
@@ -79,11 +90,59 @@ final class GeneratorVC: UIViewController {
 
 
     @objc private func sendMessageTapped() {
-//        hideKeyboard()
-//        showActivity(animation: ActivityView.Animations.plane)
+        guard messageTextView.text != placeholder && !messageTextView.text.isEmpty else {return}
+        hideKeyboard()
+        showActivity(animation: ActivityView.Animations.plane)
+        let prompt = messageTextView.text ?? ""
         
-        let vc = FullSizeWallpaperVC(image: UIImage(named: "cat")!)
-        self.present(vc, animated: true)
+        let requestModel = StableDiffusionFilterRequest(prompt: prompt)
+        
+        APIService.requestPhotoBy(filter: requestModel) { [weak self] result, error in
+            guard let self = self else { return }
+            print(result, error)
+            DispatchQueue.main.async {
+                if let status = result?.status, status == "success", let output = result?.output?.first, let url = URL(string: output) {
+                    let cacheImageView = UIImageView()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        cacheImageView.kf.setImage(with: url, options: [.transition(.fade(0.2))]) { [weak self] r in
+                            guard let self = self else { return }
+                            switch r {
+                            case .success(let response):
+                                print(response)
+//                                self.writeInStorageAndUserHistory(with: cacheImageView.image)
+                                let vc = FullSizeWallpaperVC(image: response.image)
+                                self.removeActivity { [weak self] in
+                                    self?.present(vc, animated: true)
+                                }
+                            case .failure(let error):
+                                print(error)
+                                self.removeActivity { [weak self] in
+                                    guard let self = self else { return }
+                                    print("completion removeActivity error in kingfisher")
+                                    let modal = ErrorModal(errorText: "something went wrong🤯 we are terrible sorry🥺 if you see that message at first time please try again. if you see few times in a row please try later or change your prompt🙏")
+                                    modal.tryAgainCompletion = { [weak self] in
+                                        guard let self = self else { return }
+                                        self.sendMessageTapped()
+                                    }
+                                    self.window.addSubview(modal)
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    self.removeActivity { [weak self] in
+                        guard let self = self else { return }
+                        print("completion removeActivity error")
+                        let modal = ErrorModal(errorText: "something went wrong🤯 we are terrible sorry🥺 if you see that message at first time please try again. if you see few times in a row please try later or change your prompt🙏")
+                        modal.tryAgainCompletion = { [weak self] in
+                            guard let self = self else { return }
+                            self.sendMessageTapped()
+                        }
+                        self.window.addSubview(modal)
+                    }
+                }
+            }
+        }
     }
     
     @objc private func hideKeyboard() {
