@@ -75,10 +75,21 @@ final class GeneratorVC: UIViewController {
         navigationItem.title = title
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+        
+        UIFont.familyNames.forEach({ familyName in
+            let fontNames = UIFont.fontNames(forFamilyName: familyName)
+            print(familyName, fontNames)
+        })
     }
 
 
     @objc private func sendMessageTapped() {
+        hideKeyboard()
+        showActivity(animation: ActivityView.Animations.plane)
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
     }
 }
 
