@@ -17,6 +17,7 @@
 		26E3FEB92B75EFF600543F7E /* plane.json in Resources */ = {isa = PBXBuildFile; fileRef = 26E3FEB82B75EFF500543F7E /* plane.json */; };
 		26E3FEBC2B75F07600543F7E /* SF Pro - Semibold Rails.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26E3FEBA2B75F07500543F7E /* SF Pro - Semibold Rails.otf */; };
 		26E3FEBD2B75F07600543F7E /* SF-Pro-Display-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26E3FEBB2B75F07600543F7E /* SF-Pro-Display-Semibold.ttf */; };
+		26E3FEBF2B75F41A00543F7E /* FullSizeWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E3FEBE2B75F41A00543F7E /* FullSizeWallpaperVC.swift */; };
 		3CA485C8ADD1C39E0DC66450 /* Pods_AIPainter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BD4C07D968949C51233C6B /* Pods_AIPainter.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		26E3FEB82B75EFF500543F7E /* plane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = plane.json; sourceTree = "<group>"; };
 		26E3FEBA2B75F07500543F7E /* SF Pro - Semibold Rails.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF Pro - Semibold Rails.otf"; sourceTree = "<group>"; };
 		26E3FEBB2B75F07600543F7E /* SF-Pro-Display-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.ttf"; sourceTree = "<group>"; };
+		26E3FEBE2B75F41A00543F7E /* FullSizeWallpaperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullSizeWallpaperVC.swift; sourceTree = "<group>"; };
 		37BD4C07D968949C51233C6B /* Pods_AIPainter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIPainter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87ECB053BB5338A6614936B1 /* Pods-AIPainter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIPainter.release.xcconfig"; path = "Target Support Files/Pods-AIPainter/Pods-AIPainter.release.xcconfig"; sourceTree = "<group>"; };
 		E71CBAA3C5EE44A582DF2D66 /* Pods-AIPainter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIPainter.debug.xcconfig"; path = "Target Support Files/Pods-AIPainter/Pods-AIPainter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				267C1DEC2B754DBC00DA5525 /* AppDelegate.swift */,
 				267C1DEE2B754DBC00DA5525 /* SceneDelegate.swift */,
 				267C1DF02B754DBC00DA5525 /* GeneratorVC.swift */,
+				26E3FEBE2B75F41A00543F7E /* FullSizeWallpaperVC.swift */,
 				26E3FEB52B75EA4A00543F7E /* ApiService+Extensions.swift */,
 				26E3FEB32B75532C00543F7E /* Extensions+CustomClasses.swift */,
 				26E3FEBA2B75F07500543F7E /* SF Pro - Semibold Rails.otf */,
@@ -231,6 +234,7 @@
 				267C1DF12B754DBC00DA5525 /* GeneratorVC.swift in Sources */,
 				26E3FEB62B75EA4A00543F7E /* ApiService+Extensions.swift in Sources */,
 				26E3FEB42B75532C00543F7E /* Extensions+CustomClasses.swift in Sources */,
+				26E3FEBF2B75F41A00543F7E /* FullSizeWallpaperVC.swift in Sources */,
 				267C1DED2B754DBC00DA5525 /* AppDelegate.swift in Sources */,
 				267C1DEF2B754DBC00DA5525 /* SceneDelegate.swift in Sources */,
 			);

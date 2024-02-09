@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import AVFoundation
 
 final class GradientView: UIView {
     
@@ -547,5 +548,11 @@ class HorizontalStackView: UIStackView {
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension UIViewController {
+    func shortVibrate() {
+        AudioServicesPlaySystemSound(1519)
     }
 }

@@ -9,4 +9,5 @@ target 'AIPainter' do
 pod 'Kingfisher'
 pod 'SnapKit'
 pod 'lottie-ios'
+pod 'EasyTipView'
 end

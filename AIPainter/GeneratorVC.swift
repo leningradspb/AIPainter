@@ -75,17 +75,15 @@ final class GeneratorVC: UIViewController {
         navigationItem.title = title
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        
-        UIFont.familyNames.forEach({ familyName in
-            let fontNames = UIFont.fontNames(forFamilyName: familyName)
-            print(familyName, fontNames)
-        })
     }
 
 
     @objc private func sendMessageTapped() {
-        hideKeyboard()
-        showActivity(animation: ActivityView.Animations.plane)
+//        hideKeyboard()
+//        showActivity(animation: ActivityView.Animations.plane)
+        
+        let vc = FullSizeWallpaperVC(image: UIImage(named: "cat")!)
+        self.present(vc, animated: true)
     }
     
     @objc private func hideKeyboard() {

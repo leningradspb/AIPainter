@@ -1,24 +1,28 @@
 PODS:
+  - EasyTipView (2.1.0)
   - Kingfisher (7.10.1)
   - lottie-ios (4.3.4)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - EasyTipView
   - Kingfisher
   - lottie-ios
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - EasyTipView
     - Kingfisher
     - lottie-ios
     - SnapKit
 
 SPEC CHECKSUMS:
+  EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   Kingfisher: bc5abe80a8e0144537ef1dd5a0b2621b04f7f439
   lottie-ios: 3d98679b41fa6fd6aff2352b3953dbd3df8a397e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 20552eafd7fcdc96bc4cf87a4d1e44d32aa98d0b
+PODFILE CHECKSUM: 850e0e3e0ee5bba7e8d7f7c33bbd65b307fa6495
 
 COCOAPODS: 1.13.0
